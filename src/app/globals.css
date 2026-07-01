@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-bg-primary: #0a0a0f;
+  --color-bg-card: #12121a;
+  --color-bg-column: #0e0e16;
+  --color-border: #1e1e2e;
+  --color-border-hover: #2e2e42;
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: #e4e4e7;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  animation: fadeIn 150ms ease-out;
+}
+
+.modal-content {
+  animation: slideUp 200ms ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Drag overlay */
+.drag-overlay {
+  animation: pickUp 200ms ease-out;
+}
+
+@keyframes pickUp {
+  from { transform: scale(1); box-shadow: 0 0 0 rgba(0,0,0,0); }
+  to { transform: scale(1.03); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+}
+
+/* Kanban column scroll */
+.kanban-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #27272a transparent;
+}
+
+/* Pulse animation for deadline warnings */
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.deadline-urgent {
+  animation: pulse-gentle 2s infinite;
+}
