@@ -29,7 +29,7 @@ export default function KanbanColumn({
 
   return (
     <div
-      className={`flex min-w-[260px] max-w-[300px] flex-shrink-0 flex-col rounded-2xl border bg-bg-column ${
+      className={`flex flex-1 min-w-[260px] flex-col rounded-2xl border bg-bg-column ${
         isOver ? 'border-accent/30 bg-accent/5' : 'border-border'
       }`}
     >
