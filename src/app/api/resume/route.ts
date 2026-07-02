@@ -47,6 +47,7 @@ export async function POST(request: NextRequest) {
     const blob = await put(`resumes/${applicationId}/${file.name}`, file, {
       access: 'public',
       addRandomSuffix: true,
+      token: process.env.BLOB_READ_WRITE_TOKEN,
     });
 
     // Update application record
@@ -60,10 +61,10 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(application);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to upload resume:', error);
     return NextResponse.json(
-      { error: 'Failed to upload resume' },
+      { error: error.message || 'Failed to upload resume' },
       { status: 500 }
     );
   }
