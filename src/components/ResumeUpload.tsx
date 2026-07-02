@@ -98,7 +98,7 @@ export default function ResumeUpload({ application, onUpdate }: ResumeUploadProp
 
           <div className="flex items-center gap-1">
             <a
-              href={application.resumeUrl}
+              href={`/api/resume/download?url=${encodeURIComponent(application.resumeUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg p-2 text-zinc-400 hover:bg-white/5 hover:text-zinc-200"

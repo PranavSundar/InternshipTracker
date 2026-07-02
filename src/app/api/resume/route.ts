@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
 
     // Upload to Vercel Blob
     const blob = await put(`resumes/${applicationId}/${file.name}`, file, {
-      access: 'public',
+      access: 'private',
       addRandomSuffix: true,
       token: process.env.BLOB_READ_WRITE_TOKEN,
     });
