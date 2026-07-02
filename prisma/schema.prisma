@@ -7,20 +7,17 @@ datasource db {
 }
 
 enum Status {
-  WISHLIST
   APPLIED
-  OA_ASSESSMENT
   INTERVIEW
   OFFER
   REJECTED
-  WITHDRAWN
 }
 
 model Application {
   id               String    @id @default(cuid())
   company          String
   role             String
-  status           Status    @default(WISHLIST)
+  status           Status    @default(APPLIED)
   dateApplied      DateTime?
   deadline         DateTime?
   jobLink          String?

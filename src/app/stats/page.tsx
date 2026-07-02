@@ -101,7 +101,7 @@ export default function StatsPage() {
             <p className="mt-1 text-2xl font-bold text-zinc-200">
               {stats.statusBreakdown
                 .filter((s) =>
-                  ['APPLIED', 'OA_ASSESSMENT', 'INTERVIEW'].includes(s.status)
+                  ['APPLIED', 'INTERVIEW'].includes(s.status)
                 )
                 .reduce((sum, s) => sum + s.count, 0)}
             </p>

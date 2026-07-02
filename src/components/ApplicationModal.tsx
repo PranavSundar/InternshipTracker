@@ -23,7 +23,7 @@ export default function ApplicationModal({
   const [form, setForm] = useState({
     company: '',
     role: '',
-    status: 'WISHLIST' as string,
+    status: 'APPLIED' as string,
     dateApplied: '',
     deadline: '',
     jobLink: '',
@@ -40,7 +40,7 @@ export default function ApplicationModal({
       setForm({
         company: application.company || '',
         role: application.role || '',
-        status: application.status || 'WISHLIST',
+        status: application.status || 'APPLIED',
         dateApplied: application.dateApplied
           ? new Date(application.dateApplied).toISOString().split('T')[0]
           : '',

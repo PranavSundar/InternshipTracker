@@ -15,13 +15,10 @@ import {
 } from 'recharts';
 
 const STATUS_CHART_COLORS: Record<string, string> = {
-  WISHLIST: '#94a3b8',
   APPLIED: '#60a5fa',
-  OA_ASSESSMENT: '#c084fc',
   INTERVIEW: '#fbbf24',
   OFFER: '#4ade80',
   REJECTED: '#f87171',
-  WITHDRAWN: '#71717a',
 };
 
 interface StatsChartsProps {
