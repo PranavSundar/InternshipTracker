@@ -34,8 +34,7 @@ export async function GET() {
       (a) =>
         a.status === 'APPLIED' ||
         a.status === 'INTERVIEW' ||
-        a.status === 'OFFER' ||
-        a.status === 'OA_ASSESSMENT'
+        a.status === 'OFFER'
     ).length;
     const responded = applications.filter(
       (a) => a.status === 'INTERVIEW' || a.status === 'OFFER'
@@ -68,8 +67,7 @@ export async function GET() {
           app.deadline &&
           app.deadline >= now &&
           app.deadline <= sevenDaysFromNow &&
-          app.status !== 'REJECTED' &&
-          app.status !== 'WITHDRAWN'
+          app.status !== 'REJECTED'
       )
       .sort((a, b) => {
         if (!a.deadline || !b.deadline) return 0;
