@@ -56,6 +56,7 @@ function getDeadlineInfo(deadline: string | null): {
 
   return {
     text: new Date(deadline).toLocaleDateString('en-US', {
+      timeZone: 'UTC',
       month: 'short',
       day: 'numeric',
     }),

@@ -171,6 +171,7 @@ export default function StatsPage() {
                     </span>
                     <span className="text-xs text-zinc-500">
                       {new Date(app.deadline!).toLocaleDateString('en-US', {
+                        timeZone: 'UTC',
                         month: 'short',
                         day: 'numeric',
                       })}
@@ -182,6 +183,41 @@ export default function StatsPage() {
           ) : (
             <div className="px-5 py-8 text-center text-sm text-zinc-600">
               No deadlines in the next 7 days. You&apos;re all caught up! 🎉
+            </div>
+          )}
+        </div>
+
+        {/* Top Companies */}
+        <div className="rounded-2xl border border-border bg-bg-card">
+          <div className="border-b border-border px-5 py-3">
+            <h2 className="text-sm font-semibold text-zinc-200">
+              Top Companies
+              <span className="ml-2 text-xs font-normal text-zinc-500">
+                Most applied
+              </span>
+            </h2>
+          </div>
+          {stats.topCompanies.length > 0 ? (
+            <div className="divide-y divide-border">
+              {stats.topCompanies.map((company, index) => (
+                <div key={company.name} className="flex items-center gap-4 px-5 py-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-800 text-xs font-medium text-zinc-400">
+                    #{index + 1}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-zinc-200">
+                      {company.name}
+                    </p>
+                  </div>
+                  <span className="rounded-md bg-white/5 px-2.5 py-1 text-xs font-medium text-zinc-300">
+                    {company.count} app{company.count > 1 ? 's' : ''}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="px-5 py-8 text-center text-sm text-zinc-600">
+              No companies yet!
             </div>
           )}
         </div>

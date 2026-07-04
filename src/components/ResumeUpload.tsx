@@ -91,7 +91,7 @@ export default function ResumeUpload({ application, onUpdate }: ResumeUploadProp
             <p className="truncate text-sm text-zinc-200">{application.resumeName}</p>
             {application.resumeUploadedAt && (
               <p className="text-xs text-zinc-500">
-                Uploaded {new Date(application.resumeUploadedAt).toLocaleDateString()}
+                Uploaded {new Date(application.resumeUploadedAt).toLocaleDateString(undefined, { timeZone: 'UTC' })}
               </p>
             )}
           </div>

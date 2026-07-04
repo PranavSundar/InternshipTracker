@@ -74,11 +74,34 @@ export async function GET() {
         return a.deadline.getTime() - b.deadline.getTime();
       });
 
+    // Top companies
+    const companyCounts = new Map<string, number>();
+    applications.forEach((app) => {
+      const name = app.company.trim();
+      if (name) {
+        const lowerName = name.toLowerCase();
+        let actualName = name;
+        for (const [key] of companyCounts) {
+          if (key.toLowerCase() === lowerName) {
+            actualName = key;
+            break;
+          }
+        }
+        companyCounts.set(actualName, (companyCounts.get(actualName) || 0) + 1);
+      }
+    });
+
+    const topCompanies = Array.from(companyCounts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
     return NextResponse.json({
       weeklyApplications,
       responseRate,
       statusBreakdown,
       upcomingDeadlines,
+      topCompanies,
     });
   } catch (error) {
     console.error('Failed to fetch stats:', error);

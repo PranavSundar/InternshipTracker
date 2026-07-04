@@ -127,6 +127,7 @@ export default function TableView({ applications, onCardClick }: TableViewProps)
                 <td className="px-3 py-3 text-zinc-500">
                   {app.dateApplied
                     ? new Date(app.dateApplied).toLocaleDateString('en-US', {
+                        timeZone: 'UTC',
                         month: 'short',
                         day: 'numeric',
                       })
@@ -135,6 +136,7 @@ export default function TableView({ applications, onCardClick }: TableViewProps)
                 <td className={`px-3 py-3 ${getDeadlineClass(app.deadline)}`}>
                   {app.deadline
                     ? new Date(app.deadline).toLocaleDateString('en-US', {
+                        timeZone: 'UTC',
                         month: 'short',
                         day: 'numeric',
                       })

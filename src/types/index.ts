@@ -21,4 +21,5 @@ export interface StatsData {
   responseRate: { responded: number; totalApplied: number; rate: number };
   statusBreakdown: { status: string; label: string; count: number; color: string }[];
   upcomingDeadlines: Application[];
+  topCompanies: { name: string; count: number }[];
 }
